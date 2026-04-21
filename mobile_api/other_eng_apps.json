@@ -63,7 +63,7 @@
     },
        {
       "app_id": "toefl",
-      "app_name": "Mubex TOEFL Kelime Ezber",
+      "app_name": "Mubex TOEFL Kelime Ezber & Quiz",
       "app_description": "TOEFL için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/7.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.toefl",
