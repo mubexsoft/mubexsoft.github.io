@@ -3,7 +3,7 @@
   "other_eng_apps": [
     {
       "app_id": "yds",
-      "app_name": "Mubex YDS Kelime Ezber",
+      "app_name": "Mubex YDS Kelime Ezber & Quiz",
       "app_description": "YDS sınavı için kelime ezberleme uygulaması",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/1.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.yds",
@@ -13,7 +13,7 @@
     },
     {
       "app_id": "ydt",
-      "app_name": "Mubex YDT Kelime Ezber",
+      "app_name": "Mubex YDT Kelime Ezber & Quiz",
       "app_description": "YDT sınavına özel kelime çalışmaları",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/2.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.ydt",
@@ -23,7 +23,7 @@
     },
     {
       "app_id": "tipdil",
-      "app_name": "Mubex TIPDİL Kelime Ezber",
+      "app_name": "Mubex TIPDİL Kelime Ezber & Quiz",
       "app_description": "TIPDİL için medikal İngilizce kelimeler",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/3.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.tipdil",
@@ -33,7 +33,7 @@
     },
     {
       "app_id": "yokdil_sosyal",
-      "app_name": "Mubex YÖKDİL Sosyal Kelime Ezber",
+      "app_name": "Mubex YÖKDİL Sosyal Kelime Ezber & Quiz",
       "app_description": "YÖKDİL Sosyal Bilimler için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/4.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.yokdil.sosyal",
@@ -43,7 +43,7 @@
     },
     {
       "app_id": "yokdil_saglik",
-      "app_name": "Mubex YÖKDİL Sağlık Kelime Ezber",
+      "app_name": "Mubex YÖKDİL Sağlık Kelime Ezber & Quiz",
       "app_description": "YÖKDİL Sağlık Bilimleri için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/5.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.yokdil.saglik",
@@ -53,7 +53,7 @@
     },
     {
       "app_id": "yokdil_fen",
-      "app_name": "Mubex YÖKDİL Fen Kelime Ezber",
+      "app_name": "Mubex YÖKDİL Fen Kelime Ezber & Quiz",
       "app_description": "YÖKDİL Fen Bilimleri için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/6.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.yokdil.fen",
@@ -74,7 +74,7 @@
 
       {
       "app_id": "englisha",
-      "app_name": "Mubex A1-A2 Kelime Ezber",
+      "app_name": "Mubex A1-A2 Kelime Ezber & Quiz",
       "app_description": "A1-A2 için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/8.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.englisha",
@@ -85,7 +85,7 @@
 
          {
       "app_id": "englishb",
-      "app_name": "Mubex B1-B2 Kelime Ezber",
+      "app_name": "Mubex B1-B2 Kelime Ezber & Quiz",
       "app_description": "B1-B2 için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/9.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.englishb",
@@ -96,7 +96,7 @@
 
          {
       "app_id": "englishc",
-      "app_name": "Mubex C1-C2 Kelime Ezber",
+      "app_name": "Mubex C1-C2 Kelime Ezber & Quiz",
       "app_description": "C1-C2 için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/10.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.englishc",
