@@ -1,4 +1,3 @@
-
 {
   "other_eng_apps": [
     {
@@ -7,7 +6,7 @@
       "app_description": "YDS sınavı için kelime ezberleme uygulaması",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/1.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.yds",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6785216812",
       "is_active": true,
       "order": 1
     },
@@ -17,7 +16,7 @@
       "app_description": "YDT sınavına özel kelime çalışmaları",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/2.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.ydt",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6785997936",
       "is_active": true,
       "order": 2
     },
@@ -27,7 +26,7 @@
       "app_description": "TIPDİL için medikal İngilizce kelimeler",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/3.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.tipdil",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786159162",
       "is_active": true,
       "order": 3
     },
@@ -37,7 +36,7 @@
       "app_description": "YÖKDİL Sosyal Bilimler için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/4.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.yokdil.sosyal",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786168824",
       "is_active": true,
       "order": 4
     },
@@ -47,7 +46,7 @@
       "app_description": "YÖKDİL Sağlık Bilimleri için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/5.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.yokdil.saglik",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786170478",
       "is_active": true,
       "order": 5
     },
@@ -57,64 +56,59 @@
       "app_description": "YÖKDİL Fen Bilimleri için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/6.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.yokdil.fen",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786166392",
       "is_active": true,
       "order": 6
     },
-       {
+    {
       "app_id": "toefl",
       "app_name": "Mubex TOEFL Kelime Ezber & Quiz",
       "app_description": "TOEFL için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/7.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.toefl",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786160340",
       "is_active": true,
       "order": 7
     },
-
-      {
+    {
       "app_id": "englisha",
       "app_name": "Mubex A1-A2 Kelime Ezber & Quiz",
       "app_description": "A1-A2 için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/8.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.englisha",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786161099",
       "is_active": true,
       "order": 8
     },
-
-         {
+    {
       "app_id": "englishb",
       "app_name": "Mubex B1-B2 Kelime Ezber & Quiz",
       "app_description": "B1-B2 için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/9.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.englishb",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786161795",
       "is_active": true,
       "order": 9
     },
-
-         {
+    {
       "app_id": "englishc",
       "app_name": "Mubex C1-C2 Kelime Ezber & Quiz",
       "app_description": "C1-C2 için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/10.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.englishc",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786163330",
       "is_active": true,
       "order": 10
     },
-
-     {
+    {
       "app_id": "etep",
       "app_name": "Mubex e-TEP Kelime Ezber & Quiz",
       "app_description": "e-TEP için kelime ezberi",
       "icon_path": "https://raw.githubusercontent.com/mubexsoft/mubexsoft.github.io/main/mobile_api/images/11.png",
       "google_play_url": "https://play.google.com/store/apps/details?id=com.mubex.etep",
-      "app_store_url": "",
+      "app_store_url": "https://apps.apple.com/tr/app/id6786157527",
       "is_active": true,
       "order": 11
     }
-    
   ]
 }
