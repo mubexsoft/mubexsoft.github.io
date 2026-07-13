@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover"
+    >
+
+    <meta name="theme-color" content="#071426">
+    <meta name="description" content="Mubex uygulamasını indir">
+
+    <title>Mubex Uygulamasını İndir</title>
+
+    <style>
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+        html {
+            background: #071426;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                max(24px, env(safe-area-inset-top))
+                24px
+                max(24px, env(safe-area-inset-bottom));
+
+            overflow: hidden;
+
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            color: #ffffff;
+
+            background:
+                radial-gradient(
+                    circle at 50% 42%,
+                    rgba(61, 143, 255, 0.42),
+                    transparent 34%
+                ),
+                radial-gradient(
+                    circle at 12% 10%,
+                    rgba(131, 88, 255, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 86%,
+                    rgba(37, 203, 180, 0.16),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    #06101f 0%,
+                    #0b203e 48%,
+                    #071426 100%
+                );
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        button,
+        a {
+            font: inherit;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img {
+            display: block;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        /* =========================================================
+           CENTER APP ICON
+        ========================================================= */
+
+        .app-stage {
+            position: relative;
+            z-index: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+        }
+
+        .app-icon {
+            width: clamp(132px, 28vw, 210px);
+            height: clamp(132px, 28vw, 210px);
+
+            object-fit: cover;
+            border-radius: 24%;
+
+            opacity: 0;
+            transform: translateY(8px) scale(0.94);
+
+            box-shadow:
+                0 34px 75px rgba(0, 0, 0, 0.42),
+                0 12px 28px rgba(0, 0, 0, 0.28);
+
+            transition:
+                opacity 0.35s ease,
+                transform 0.35s ease;
+
+            -webkit-mask-image:
+                -webkit-radial-gradient(white, black);
+        }
+
+        .app-icon.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* =========================================================
+           LOADING
+        ========================================================= */
+
+        .loading-spinner {
+            position: absolute;
+
+            width: 42px;
+            height: 42px;
+
+            border: 4px solid rgba(255, 255, 255, 0.18);
+            border-top-color: #ffffff;
+            border-radius: 50%;
+
+            animation: loadingSpin 0.85s linear infinite;
+        }
+
+        .loading-spinner.hidden {
+            display: none;
+        }
+
+        @keyframes loadingSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* =========================================================
+           DESKTOP STORE MODAL
+        ========================================================= */
+
+        .store-modal {
+            position: fixed;
+            z-index: 999;
+
+            inset: 0;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                max(20px, env(safe-area-inset-top))
+                20px
+                max(20px, env(safe-area-inset-bottom));
+
+            background: rgba(5, 13, 25, 0.84);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .store-modal.active {
+            display: flex;
+        }
+
+        .store-box {
+            width: 100%;
+            max-width: 390px;
+
+            padding: 29px;
+            border-radius: 31px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 38px 100px rgba(0, 0, 0, 0.36);
+
+            animation: modalOpen 0.28s ease both;
+        }
+
+        @keyframes modalOpen {
+            from {
+                opacity: 0;
+                transform: translateY(12px) scale(0.97);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-icon {
+            width: 85px;
+            height: 85px;
+
+            margin: 0 auto 19px;
+
+            border-radius: 22%;
+            object-fit: cover;
+
+            box-shadow:
+                0 14px 28px rgba(16, 24, 40, 0.15);
+
+            -webkit-mask-image:
+                -webkit-radial-gradient(white, black);
+        }
+
+        .store-box h1 {
+            color: #101828;
+
+            font-size: 23px;
+            line-height: 1.35;
+            text-align: center;
+        }
+
+        .store-box p {
+            margin-top: 8px;
+
+            color: #667085;
+
+            font-size: 15px;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .store-button {
+            display: block;
+
+            width: 100%;
+
+            margin-top: 12px;
+            padding: 16px;
+
+            border: none;
+            border-radius: 17px;
+
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            text-decoration: none;
+
+            cursor: pointer;
+        }
+
+        .apple-button {
+            margin-top: 25px;
+
+            background: #090909;
+            color: #ffffff;
+        }
+
+        .google-button {
+            background: #edf4ff;
+            color: #245bbc;
+        }
+
+        .close-button {
+            background: transparent;
+            color: #667085;
+        }
+
+        /* =========================================================
+           SORRY / ERROR PAGE
+        ========================================================= */
+
+        .sorry-page {
+            display: none;
+
+            width: 100%;
+            max-width: 520px;
+
+            padding: 40px 30px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.24);
+
+            text-align: center;
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .sorry-page.active {
+            display: block;
+        }
+
+        .sorry-symbol {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 76px;
+            height: 76px;
+
+            margin: 0 auto 22px;
+            border-radius: 24px;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            font-size: 38px;
+        }
+
+        .sorry-page h1 {
+            font-size: clamp(30px, 8vw, 42px);
+            line-height: 1.1;
+            letter-spacing: -1.3px;
+        }
+
+        .sorry-page p {
+            margin-top: 14px;
+
+            color: rgba(255, 255, 255, 0.74);
+
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .home-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-width: 170px;
+
+            margin-top: 27px;
+            padding: 15px 22px;
+
+            border-radius: 16px;
+
+            background: #ffffff;
+            color: #0b203e;
+
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        /* =========================================================
+           SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 420px) {
+            .store-box {
+                padding: 25px;
+            }
+
+            .sorry-page {
+                padding: 34px 22px;
+                border-radius: 25px;
+            }
+        }
+
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
+        @media (prefers-reduced-motion: reduce) {
+            .loading-spinner {
+                animation-duration: 1.6s;
+            }
+
+            .app-icon,
+            .store-box {
+                transition: none;
+                animation: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main id="appStage" class="app-stage" aria-live="polite">
+        <div id="loadingSpinner" class="loading-spinner" aria-label="Uygulama yükleniyor"></div>
+
+        <img
+            id="appIcon"
+            class="app-icon"
+            src=""
+            alt=""
+        >
+    </main>
+
+    <section id="sorryPage" class="sorry-page" aria-labelledby="sorryTitle">
+        <div class="sorry-symbol" aria-hidden="true">!</div>
+
+        <h1 id="sorryTitle">Üzgünüz</h1>
+
+        <p id="sorryMessage">
+            Aradığınız uygulama bulunamadı veya indirme bağlantısı artık kullanılamıyor.
+        </p>
+
+        <a class="home-button" href="./index.html">
+            Uygulamalara Dön
+        </a>
+    </section>
+
+    <div
+        id="storeModal"
+        class="store-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalAppName"
+        aria-describedby="modalDescription"
+    >
+        <div class="store-box">
+            <img
+                id="modalAppIcon"
+                class="modal-icon"
+                src=""
+                alt=""
+            >
+
+            <h1 id="modalAppName">Mubex</h1>
+
+            <p id="modalDescription">
+                Uygulamayı indirmek istediğiniz mağazayı seçin.
+            </p>
+
+            <a
+                id="appleStoreButton"
+                class="store-button apple-button"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                App Store
+            </a>
+
+            <a
+                id="googleStoreButton"
+                class="store-button google-button"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Google Play
+            </a>
+
+            <button
+                id="closeModalButton"
+                class="store-button close-button"
+                type="button"
+            >
+                Kapat
+            </button>
+        </div>
+    </div>
+
+    <script>
+        "use strict";
+
+        /* =========================================================
+           CONFIG
+        ========================================================= */
+
+        const API_URL =
+            "https://mubexsoft.github.io/mobile_api/other_eng_apps.json";
+
+        const INDEX_URL = "./index.html";
+
+        /* =========================================================
+           DOM
+        ========================================================= */
+
+        const appStage =
+            document.getElementById("appStage");
+
+        const loadingSpinner =
+            document.getElementById("loadingSpinner");
+
+        const appIcon =
+            document.getElementById("appIcon");
+
+        const sorryPage =
+            document.getElementById("sorryPage");
+
+        const sorryMessage =
+            document.getElementById("sorryMessage");
+
+        const storeModal =
+            document.getElementById("storeModal");
+
+        const modalAppName =
+            document.getElementById("modalAppName");
+
+        const modalAppIcon =
+            document.getElementById("modalAppIcon");
+
+        const appleStoreButton =
+            document.getElementById("appleStoreButton");
+
+        const googleStoreButton =
+            document.getElementById("googleStoreButton");
+
+        const closeModalButton =
+            document.getElementById("closeModalButton");
+
+        /* =========================================================
+           HELPERS
+        ========================================================= */
+
+        function getRequestedAppId() {
+            const params =
+                new URLSearchParams(window.location.search);
+
+            const rawId =
+                params.get("id");
+
+            if (typeof rawId !== "string") {
+                return "";
+            }
+
+            return rawId
+                .trim()
+                .toLowerCase();
+        }
+
+        function hasValidUrl(url) {
+            if (
+                typeof url !== "string"
+                ||
+                url.trim() === ""
+                ||
+                url.trim() === "#"
+            ) {
+                return false;
+            }
+
+            try {
+                const parsedUrl =
+                    new URL(url, window.location.href);
+
+                return (
+                    parsedUrl.protocol === "https:"
+                    ||
+                    parsedUrl.protocol === "http:"
+                );
+            }
+            catch {
+                return false;
+            }
+        }
+
+        function getDeviceType() {
+            const userAgent =
+                navigator.userAgent || "";
+
+            const isIPadOS =
+                navigator.platform === "MacIntel"
+                &&
+                navigator.maxTouchPoints > 1;
+
+            if (/android/i.test(userAgent)) {
+                return "android";
+            }
+
+            if (
+                /iPad|iPhone|iPod/i.test(userAgent)
+                ||
+                isIPadOS
+            ) {
+                return "ios";
+            }
+
+            return "desktop";
+        }
+
+        function updatePageMetadata(app) {
+            document.title =
+                `${app.app_name} İndir`;
+
+            const description =
+                document.querySelector('meta[name="description"]');
+
+            if (description) {
+                description.content =
+                    app.app_description
+                    ||
+                    `${app.app_name} uygulamasını indir`;
+            }
+        }
+
+        function showAppIcon(app) {
+            return new Promise(resolve => {
+                let completed = false;
+
+                const finish = () => {
+                    if (completed) {
+                        return;
+                    }
+
+                    completed = true;
+
+                    loadingSpinner.classList.add("hidden");
+                    appIcon.classList.add("visible");
+
+                    resolve();
+                };
+
+                appIcon.src =
+                    app.icon_path;
+
+                appIcon.alt =
+                    app.app_name;
+
+                if (appIcon.complete) {
+                    finish();
+                    return;
+                }
+
+                appIcon.addEventListener(
+                    "load",
+                    finish,
+                    { once: true }
+                );
+
+                appIcon.addEventListener(
+                    "error",
+                    finish,
+                    { once: true }
+                );
+
+                window.setTimeout(
+                    finish,
+                    1800
+                );
+            });
+        }
+
+        function showSorry(message) {
+            loadingSpinner.classList.add("hidden");
+            appStage.style.display = "none";
+            storeModal.classList.remove("active");
+
+            if (message) {
+                sorryMessage.textContent =
+                    message;
+            }
+
+            sorryPage.classList.add("active");
+
+            document.title =
+                "Üzgünüz | Mubex";
+        }
+
+        function showDesktopStorePopup(app) {
+            modalAppName.textContent =
+                app.app_name;
+
+            modalAppIcon.src =
+                app.icon_path;
+
+            modalAppIcon.alt =
+                app.app_name;
+
+            const hasAppleStore =
+                hasValidUrl(app.app_store_url);
+
+            const hasGooglePlay =
+                hasValidUrl(app.google_play_url);
+
+            appleStoreButton.style.display =
+                hasAppleStore
+                    ? "block"
+                    : "none";
+
+            googleStoreButton.style.display =
+                hasGooglePlay
+                    ? "block"
+                    : "none";
+
+            if (hasAppleStore) {
+                appleStoreButton.href =
+                    app.app_store_url;
+            }
+
+            if (hasGooglePlay) {
+                googleStoreButton.href =
+                    app.google_play_url;
+            }
+
+            if (
+                !hasAppleStore
+                &&
+                !hasGooglePlay
+            ) {
+                showSorry(
+                    "Bu uygulama için kullanılabilir bir mağaza bağlantısı bulunamadı."
+                );
+
+                return;
+            }
+
+            storeModal.classList.add("active");
+        }
+
+        function openAppStore(app) {
+            const device =
+                getDeviceType();
+
+            if (device === "ios") {
+                if (hasValidUrl(app.app_store_url)) {
+                    window.location.replace(
+                        app.app_store_url
+                    );
+
+                    return;
+                }
+
+                showSorry(
+                    "Bu uygulamanın App Store bağlantısı şu anda kullanılamıyor."
+                );
+
+                return;
+            }
+
+            if (device === "android") {
+                if (hasValidUrl(app.google_play_url)) {
+                    window.location.replace(
+                        app.google_play_url
+                    );
+
+                    return;
+                }
+
+                showSorry(
+                    "Bu uygulamanın Google Play bağlantısı şu anda kullanılamıyor."
+                );
+
+                return;
+            }
+
+            showDesktopStorePopup(app);
+        }
+
+        /* =========================================================
+           MODAL
+        ========================================================= */
+
+        function closeStoreModal() {
+            storeModal.classList.remove("active");
+        }
+
+        closeModalButton.addEventListener(
+            "click",
+            closeStoreModal
+        );
+
+        storeModal.addEventListener(
+            "click",
+            event => {
+                if (event.target === storeModal) {
+                    closeStoreModal();
+                }
+            }
+        );
+
+        document.addEventListener(
+            "keydown",
+            event => {
+                if (
+                    event.key === "Escape"
+                    &&
+                    storeModal.classList.contains("active")
+                ) {
+                    closeStoreModal();
+                }
+            }
+        );
+
+        /* =========================================================
+           API
+        ========================================================= */
+
+        async function loadApp() {
+            const requestedAppId =
+                getRequestedAppId();
+
+            if (!requestedAppId) {
+                showSorry(
+                    "İndirmek istediğiniz uygulamanın kimliği belirtilmedi."
+                );
+
+                return;
+            }
+
+            try {
+                const response =
+                    await fetch(
+                        API_URL,
+                        {
+                            cache: "no-store"
+                        }
+                    );
+
+                if (!response.ok) {
+                    throw new Error(
+                        `HTTP ${response.status}`
+                    );
+                }
+
+                const data =
+                    await response.json();
+
+                if (
+                    !data
+                    ||
+                    !Array.isArray(data.other_eng_apps)
+                ) {
+                    throw new Error(
+                        "Geçersiz API yanıtı"
+                    );
+                }
+
+                const app =
+                    data.other_eng_apps.find(item => {
+                        const itemId =
+                            typeof item.app_id === "string"
+                                ? item.app_id
+                                    .trim()
+                                    .toLowerCase()
+                                : "";
+
+                        return (
+                            itemId === requestedAppId
+                            &&
+                            item.is_active === true
+                        );
+                    });
+
+                if (!app) {
+                    showSorry(
+                        `"${requestedAppId}" kimliğine ait aktif bir uygulama bulunamadı.`
+                    );
+
+                    return;
+                }
+
+                if (
+                    typeof app.icon_path !== "string"
+                    ||
+                    app.icon_path.trim() === ""
+                ) {
+                    showSorry(
+                        "Uygulama bilgileri eksik olduğu için indirme sayfası açılamadı."
+                    );
+
+                    return;
+                }
+
+                updatePageMetadata(app);
+
+                await showAppIcon(app);
+
+                openAppStore(app);
+            }
+            catch (error) {
+                console.error(
+                    "Uygulama bilgisi yüklenemedi:",
+                    error
+                );
+
+                showSorry(
+                    "Uygulama bilgilerine şu anda ulaşılamıyor. Lütfen daha sonra yeniden deneyin."
+                );
+            }
+        }
+
+        /* =========================================================
+           INIT
+        ========================================================= */
+
+        loadApp();
+    </script>
+
+</body>
+</html>
