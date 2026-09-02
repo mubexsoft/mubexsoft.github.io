@@ -1,7 +1,7 @@
 {
 	"other_eng_apps": [
 
-			{
+		{
 			"app_id": "mubi2",
 			"app_name": "Mubi : 2. Sınıf İngilizce",
 			"app_description": "2. Sınıf İngilizce öğrenme ve pratik uygulaması",
@@ -70,8 +70,7 @@
 			"app_store_url": "https://apps.apple.com/tr/app/mubi-8-s%C4%B1n%C4%B1f-i-ngilizce/id6806878360",
 			"is_active": true,
 			"order": 7
-		}
-
+		},
 		{
 			"app_id": "yds",
 			"app_name": "Mubex YDS Kelime Ezber & Quiz",
